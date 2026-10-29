@@ -18,7 +18,7 @@
 - GUI renders six cards; CPU/RAM/disk and NVIDIA name, load, real GPU temperature and watts displayed. Settings Save behavior and forced small-screen scrolling passed isolated GUI tests.
 - A locally built PyInstaller executable launched a responsive GUI and its `--self-test` returned exit 0.
 - **Private GitHub Actions Windows CI** built the distributed executable from commit `94f1506` and passed the source tests.
-- The exact downloadable CI executable is a distinct binary from the locally tested EXE. Its real Windows 11 runtime verification is documented separately in the physical-hardware test report.
+- The exact downloadable CI executable is a distinct binary from the locally built EXE. It was **separately downloaded and verified on the physical Windows 11 machine**: matching SHA-256, bundled self-test exit 0 with PASS log, GUI launched, main window responsive and captured. See the physical-hardware test report.
 
 ## Not verified
 

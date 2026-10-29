@@ -42,3 +42,5 @@ Linux版：[PhoenixPanelX-Linux](https://github.com/festice32570/PhoenixPanelX-L
 ## Windows 11実機での追加検証（preview4）
 
 Windows 11 Pro実機で19件の既存テストを実行したところ、NVIDIA搭載機の想定が誤っていたテスト1件の失敗を発見して修正しました。修正後は21件の回帰テストとソースのセルフテストが成功し、実機でGUI表示・設定画面操作・RTX 3080実測値・実行ファイル生成・単体セルフテストを確認しました。LibreHardwareMonitor WMIがないためCPU温度・CPUファン・基板温度は取得不可です。警告音の実聴・物理Beep・Windowsログオン後の自動起動は未確認です。配布EXEの検証結果と差異は [Windows 11実機検証報告](./WINDOWS11_PHYSICAL_TEST_REPORT_20261029.md) を参照してください。
+
+**preview4公開EXEの再検証：** GitHubで公開したEXEをWindows 11実機へダウンロードし、SHA-256一致、EXE単体セルフテスト成功、GUI起動・画面応答を確認しました。CPU温度などの未取得項目、および警告音・自動起動の未検証事項は残ります。

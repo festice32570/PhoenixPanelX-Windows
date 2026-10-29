@@ -19,7 +19,7 @@
 6. Queried actual live hardware through `nvidia-smi`: GeForce RTX 3080 model, usage, temperature, and watts returned measurable values. CPU model, RAM and storage were obtained. CPU temperature/board temperature/CPU fan remained unavailable because LibreHardwareMonitor WMI was not installed. **Do not interpret unavailable as safe temperatures.**
 7. Fixed repeated PowerShell WMI failures when the LHM namespace is absent. On the real Windows 11 machine, the first sampling call took approximately **1.60 s**; subsequent calls took about **0.045–0.047 s** in the short validation loop. A 60-second backoff allows later retry.
 8. Built a local `--onefile --windowed` executable on actual Windows 11, ran its **bundled frozen `--self-test` successfully (exit 0)**, and launched the GUI with a responsive titled window; captured the new GUI window.
-9. Private GitHub Actions Windows build for the same committed source succeeded. **Validate the exact downloadable CI artifact separately from the locally built EXE** before claiming the published executable has itself been runtime-tested on physical Windows 11.
+9. Private GitHub Actions Windows build for the same committed source succeeded. Downloaded the **exact released preview4 EXE** onto the physical Windows 11 machine and verified SHA-256 `8bf80064f1bf9202debabed726f96a61ea38b05c998c57675919527acd394214`. Ran its bundled frozen `--self-test` (exit code **0**, PASS log), launched its GUI and confirmed the responsive PhoenixPanelX window, and captured its application window. The published executable itself has therefore passed physical Windows 11 startup and offline smoke tests.
 
 ## Fixes in preview4
 - Synthetic tests are now independent of installed NVIDIA drivers.
