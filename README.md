@@ -1,14 +1,14 @@
-# PhoenixPanelX — Windows preview (Windows 10 VM tested)
+# PhoenixPanelX — Windows preview (Windows 11 physical hardware tested)
 
-**Windows 10 Home x64 の VMware 仮想マシンでテストしました。Windows 11 実機は未検証です。** 配布は実験的なプレビューです。
+**Windows 11 Pro x64の実機（Ryzen 7 5700X3D / GeForce RTX 3080）でテストしました。Windows 10 HomeのVMでも旧版を検証済みです。** 配布は実験的なプレビューです。
 
 本リポジトリには **アプリケーションのソースコードを公開しません**。GitHub が自動作成する Source code アーカイブには説明文のみ含まれ、アプリのPythonソースは含まれません。ただしバイナリからの解析を完全に防げるわけではありません。
 
 ## ダウンロード・起動
 
-[Releases](../../releases) から最新の `PhoenixPanelX-Windows-VM-Preview.exe` を入手し、SHA-256を照合してください。インストーラー不要の実行ファイルです。コード署名はありません。出所不明の警告を安易に回避しないでください。
+[Releases](../../releases) から最新の `PhoenixPanelX-Windows-preview4.exe` を入手し、SHA-256を照合してください。インストーラー不要の実行ファイルです。コード署名はありません。出所不明の警告を安易に回避しないでください。
 
-Windows 10 / Windows 11を対象としていますが、**動作確認を実施したのはWindows 10 HomeのVMのみ**です。Windows 10は標準サポート終了済みのため、必要な保護対策のある検証環境で利用してください。
+Windows 10 / Windows 11を対象とし、**Windows 11 Pro実機で21件のテストとGUI/RTX 3080センサー取得を確認**しました。Windows 10は標準サポート終了済みのため、必要な保護対策のある検証環境で利用してください。
 
 ## Linux版との対応・制限
 
@@ -33,8 +33,12 @@ Linux版：[PhoenixPanelX-Linux](https://github.com/festice32570/PhoenixPanelX-L
 
 ## English
 
-**Experimental Windows binary preview. Tested on a Windows 10 Home x64 VMware VM on October 29, 2026, not on physical Windows 11 hardware.** The six-card Linux-classic-inspired dashboard supports bilingual UI, color themes, CPU/GPU monitoring when real sensors are available, threshold alerts, sound options and scrollable viewing. Actual motherboard Beep audio, reboot/autostart persistence, physical temperature sensors and Windows 11 hardware are not verified. Linux tray, desktop notifications and event history are not yet ported; exact parity is not claimed. No code signing. The public repository contains documentation and binaries only; the application source stays private.
+**Experimental Windows binary preview. Tested on actual Windows 11 Pro x64 hardware (Ryzen 7 5700X3D / RTX 3080) on October 29, 2026, as well as an earlier Windows 10 Home VMware VM.** The six-card Linux-classic-inspired dashboard supports bilingual UI, color themes, CPU/GPU monitoring when real sensors are available, threshold alerts, sound options and scrollable viewing. Actual motherboard Beep audio, reboot/autostart persistence, physical CPU temperature sensors are not available without a compatible provider. Linux tray, desktop notifications and event history are not yet ported; exact parity is not claimed. No code signing. The public repository contains documentation and binaries only; the application source stays private.
 
-## 2026-10-29 追加修正（preview3）
+## 2026-10-29 追加修正（preview3・履歴）
 
 温度センサーの欠損値が発生した際に、5分間の温度警告再通知クールダウンが誤って解除される不具合を修正しました。19件のテストを発見し、Linux上で18件成功、Tk依存の1件はスキップとなりました。非公開GitHub ActionsのWindowsランナーによるビルド・テストも実施します。**今回の修正版バイナリはWindows 10 VMへの接続が応答せず、VM上の再検証は未実施**です。前回preview2に行ったWindows 10 VMの動作試験とは区別してください。Linux版と完全な機能一致は未達です。
+
+## Windows 11実機での追加検証（preview4）
+
+Windows 11 Pro実機で19件の既存テストを実行したところ、NVIDIA搭載機の想定が誤っていたテスト1件の失敗を発見して修正しました。修正後は21件の回帰テストとソースのセルフテストが成功し、実機でGUI表示・設定画面操作・RTX 3080実測値・実行ファイル生成・単体セルフテストを確認しました。LibreHardwareMonitor WMIがないためCPU温度・CPUファン・基板温度は取得不可です。警告音の実聴・物理Beep・Windowsログオン後の自動起動は未確認です。配布EXEの検証結果と差異は [Windows 11実機検証報告](./WINDOWS11_PHYSICAL_TEST_REPORT_20261029.md) を参照してください。
