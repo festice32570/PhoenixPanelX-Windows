@@ -34,3 +34,7 @@ Linux版：[PhoenixPanelX-Linux](https://github.com/festice32570/PhoenixPanelX-L
 ## English
 
 **Experimental Windows binary preview. Tested on a Windows 10 Home x64 VMware VM on October 29, 2026, not on physical Windows 11 hardware.** The six-card Linux-classic-inspired dashboard supports bilingual UI, color themes, CPU/GPU monitoring when real sensors are available, threshold alerts, sound options and scrollable viewing. Actual motherboard Beep audio, reboot/autostart persistence, physical temperature sensors and Windows 11 hardware are not verified. Linux tray, desktop notifications and event history are not yet ported; exact parity is not claimed. No code signing. The public repository contains documentation and binaries only; the application source stays private.
+
+## 2026-10-29 追加修正（preview3）
+
+温度センサーの欠損値が発生した際に、5分間の温度警告再通知クールダウンが誤って解除される不具合を修正しました。19件のテストを発見し、Linux上で18件成功、Tk依存の1件はスキップとなりました。非公開GitHub ActionsのWindowsランナーによるビルド・テストも実施します。**今回の修正版バイナリはWindows 10 VMへの接続が応答せず、VM上の再検証は未実施**です。前回preview2に行ったWindows 10 VMの動作試験とは区別してください。Linux版と完全な機能一致は未達です。
